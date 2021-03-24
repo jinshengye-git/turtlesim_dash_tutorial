@@ -1,7 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # Create a dash server that is also an actionlib client to turtle_actionlib
-
-from __future__ import print_function, division
 
 import os
 import sys
