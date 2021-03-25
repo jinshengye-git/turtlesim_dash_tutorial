@@ -74,7 +74,7 @@ class Dashboard(object):
     # these parameters could be set through ROS parameters or services too!
     POSE_UPDATE_INTERVAL = 5
     POSE_MAX_TIMESTEPS = 2000
-    POSE_ATTRIBUTES = ['x', 'y', 'theta', 'linear_velocity', 'angular_velocity']
+    POSE_ATTRIBUTES = ['x', 'y']
 
     # Constants for pertinent output fields
     SERVER_STATUS_OUTPUT_FORMAT = "Shape Server Status: {status}"
@@ -258,8 +258,10 @@ class Dashboard(object):
             data = [
                 go.Scatter(
                     name=attr,
-                    x=pose_history[0, :],
-                    y=pose_history[idx+1, :],
+                    #x=pose_history[0, :],
+                    #y=pose_history[idx+1, :],
+                    x = pose_history[1,:],
+                    y = pose_history[2,:],
                     mode='lines+markers'
                 )
                 for idx, attr in enumerate(Dashboard.POSE_ATTRIBUTES)
@@ -293,9 +295,6 @@ class Dashboard(object):
             rospy.Time.now().to_time() % 1000,
             msg.x,
             msg.y,
-            msg.theta,
-            msg.linear_velocity,
-            msg.angular_velocity,
         ]
 
     def _flask_status_endpoint(self):
