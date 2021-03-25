@@ -7,5 +7,5 @@
   <node name="turtle_shape" pkg="turtle_actionlib" type="shape_server" />
 
   <!-- Launch the dashboard -->
-  <node name="turtle_dashboard" pkg="turtlesim_dash_tutorial" type="dashboard" output="screen" />
+  <!--<node name="turtle_dashboard" pkg="turtlesim_dash_tutorial" type="dashboard" output="screen" />-->
 </launch>
